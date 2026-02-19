@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
+const linkedInUrl = 'https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/';
+const xUrl = 'https://x.com/catarsis_______';
+const githubUrl = 'https://github.com/catabg';
+const profileImageUrl = `${import.meta.env.BASE_URL}profile.jpg`;
+
+const experienceItems = [
+  {
+    role: 'Chief Editor & Content Manager',
+    company: 'Freelancer',
+    period: '2025 - Presente',
+    description:
+      'Creación de contenido para redes sociales, grabación y edición de videos, creación de copys, programación de contenido y diseño de piezas.'
+  },
+  {
+    role: 'Noble Union',
+    company: 'Practicas profesionales',
+    period: 'Enero - Julio de 2025',
+    description:
+      'Apoyo en la gestión de la información interna y creación de estrategias para fortalecer la cultura organizacional.'
+  },
+  {
+    role: 'Auxiliar Administrativo',
+    company: 'Coordinacion Academica de Extension Cultural - Universidad de Antioquia',
+    period: 'Mayo 2023 - Enero 2024',
+    description:
+      'Coordinación de logística de eventos, planeación estratégica, investigación y proyectos académicos. Creación de piezas gráficas, contenidos para redes, copys y formularios.'
+  },
+  {
+    role: 'Community Manager',
+    company: 'Proyecto @utrabetaureta',
+    period: 'Abril 2023 - Noviembre 2023',
+    description:
+      'Manejo de redes sociales, coordinación de logística de eventos, creación de copys y registros audiovisuales.'
+  },
+  {
+    role: 'Team Leader Customer Services',
+    company: 'Xtendo Group',
+    period: 'Abril 2021 - Febrero 2023',
+    description:
+      'Supervisión de equipos de servicio al cliente para Chile y Perú, con uso de herramientas ofimáticas y plataformas de atención.'
+  },
+  {
+    role: 'Gestor de conocimiento',
+    company: 'Secretaría de Movilidad de Medellín',
+    period: 'Julio - Diciembre 2019',
+    description:
+      'Intervenciones pedagógicas de seguridad vial en calles, empresas e instituciones públicas por medio de talleres con acercamiento a la comunidad.'
+  }
+];
+
+const skills = [
+  'Proactividad',
+  'Fácil aprendizaje',
+  'Realización de eventos',
+  'Practicidad',
+  'Resolución de conflictos',
+  'Trabajo en equipo'
+];
+
+const languages = ['Español: Nativo', 'Inglés: C1 sin certificación', 'Italiano: Básico'];
+
+const tools = [
+  'Canva',
+  'DaVinci Resolve',
+  'MS Office (Excel, Word, Power Point, One Drive, Teams)',
+  'Google Suite (Docs, Sheets, Scholar, Traductor, Meet, Classroom)',
+  'ChatGPT, Codex y otras herramientas de IA',
+  'Social Media (Instagram, Facebook, YouTube, TikTok, Spotify, LinkedIn)'
+];
+---
+
+<BaseLayout title="Catalina Brand Gómez - Comunicadora" description="Portafolio personal de comunicación">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Comunicación, investigación y estrategia digital</p>
+      <h1>Catalina Brand Gómez</h1>
+      <p>
+        Comunicadora con énfasis en investigación y comunicación digital. Me enfoco en procesos creativos,
+        creación de estrategias comunicativas, gestión de proyectos y producción de eventos.
+      </p>
+      <div class="actions">
+        <a class="cta" href="#experiencia">Ver experiencia</a>
+        <a class="cta" href={cvUrl}>Descargar CV</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img class="profile-photo" src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gómez" />
+      <div class="tag">Contacto directo</div>
+      <h3>catabg1410@gmail.com</h3>
+      <p>Disponible para oportunidades en comunicación, contenido digital y gestión de proyectos.</p>
+      <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">
+        Ver LinkedIn
+      </a>
+      <div class="actions">
+        <a class="cta" href={xUrl} target="_blank" rel="noreferrer">
+          Ver X
+        </a>
+        <a class="cta" href={githubUrl} target="_blank" rel="noreferrer">
+          Ver GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="section">
+    <h2>Sobre mí</h2>
+    <div class="card">
+      <p>
+        Comunico ideas complejas con claridad y enfoque práctico. He trabajado en creación de contenido,
+        logística de eventos, coordinación académica, servicio al cliente y fortalecimiento de cultura
+        organizacional.
+      </p>
+    </div>
+  </section>
+
+  <section id="experiencia" class="section">
+    <h2>Experiencia</h2>
+    <p class="section-intro">Resumen de roles y responsabilidades principales.</p>
+    <div class="timeline">
+      {experienceItems.map((item) => (
+        <article class="card">
+          <h3>{item.role}</h3>
+          <p class="job-meta">
+            {item.company} • {item.period}
+          </p>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="estudios" class="section">
+    <h2>Estudios</h2>
+    <div class="split">
+      <article class="card">
+        <h3>2026 - Pregrado en Comunicaciones</h3>
+        <p>Universidad de Antioquia</p>
+      </article>
+      <article class="card">
+        <h3>2016 - Bachiller</h3>
+        <p>Diocesano Laura Montoya - Chigorodó, Antioquia</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="habilidades" class="section">
+    <h2>Habilidades y conocimientos</h2>
+    <div class="split">
+      <article class="card">
+        <h3>Habilidades</h3>
+        <ul class="list">
+          {skills.map((skill) => (
+            <li>{skill}</li>
+          ))}
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Idiomas</h3>
+        <ul class="list">
+          {languages.map((language) => (
+            <li>{language}</li>
+          ))}
+        </ul>
+      </article>
+    </div>
+    <article class="card">
+      <h3>Conocimientos técnicos</h3>
+      <ul class="list">
+        {tools.map((tool) => (
+          <li>{tool}</li>
+        ))}
+      </ul>
+    </article>
+  </section>
+
+  <section id="cv" class="section">
+    <h2>Curriculum Vitae</h2>
+    <div class="split">
+      <div class="card">
+        <h3>Descargar CV en PDF</h3>
+        <p>Este boton descarga el archivo actualizado desde <code>public/cv.pdf</code>.</p>
+        <a class="cta" href={cvUrl}>Descargar CV</a>
+      </div>
+      <div class="card">
+        <h3>Perfil profesional</h3>
+        <p>
+          Experiencia en comunicación digital, producción audiovisual, investigación, diseño de piezas,
+          copys y coordinación de equipos.
+        </p>
+        <span class="tag">Comunicación • Video • Estrategia</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <div class="card">
+      <p>Correo principal para colaboraciones, oportunidades laborales y proyectos.</p>
+      <div class="actions">
+        <a class="cta" href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
+        <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <a class="cta" href={xUrl} target="_blank" rel="noreferrer">
+          X
+        </a>
+        <a class="cta" href={githubUrl} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+const { title = 'Catalina Brand Gómez - Comunicadora', description = 'Sitio personal de Catalina Brand Gómez' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Spline+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Saltar al contenido</a>
+    <div class="page">
+      <header class="site-header">
+        <div class="brand">
+          <span class="monogram">CS</span>
+          <div>
+            <div class="name">Catalina Brand Gómez</div>
+            <div class="role">Comunicadora</div>
+          </div>
+        </div>
+        <nav class="site-nav">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#experiencia">Experiencia</a>
+          <a href="#estudios">Estudios</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#cv">CV</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </header>
+      <main id="content">
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div>© {new Date().getFullYear()} Catalina Brand Gómez</div>
+        <div class="footer-links">
+          <a href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
+          <a href="https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href="https://x.com/catarsis_______" target="_blank" rel="noreferrer">X</a>
+          <a href="https://github.com/catabg" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
