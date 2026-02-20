@@ -551,14 +551,17 @@ main {
 }
 
 .tool-logo {
-  width: 42px;
-  height: 42px;
+  min-width: 90px;
+  min-height: 76px;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 7px;
   border-radius: 11px;
   border: 1px solid var(--surface-border);
   background: #f7f9fc;
+  padding: 8px 9px;
 }
 
 .tool-logo img {
@@ -571,8 +574,12 @@ main {
   background: #ffffff;
 }
 
-.tool-logo img[src*="chatgpt"] {
-  border-radius: 6px;
+.tool-label {
+  font-size: 0.66rem;
+  line-height: 1.2;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  text-align: center;
 }
 
 .mini-link {

@@ -100,11 +100,10 @@ const canvaCampaigns = [
 }));
 
 const aiTools = [
-  { name: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
-  { name: 'ChatGPT', icon: `${import.meta.env.BASE_URL}tool-logos/chatgpt.svg` },
-  { name: 'OpenAI', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
-  { name: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
-  { name: 'Git', icon: `${import.meta.env.BASE_URL}tool-logos/git.svg` }
+  { name: 'Notion', label: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
+  { name: 'OpenAI', label: 'ChatGPT Codex', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
+  { name: 'Perplexity', label: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
+  { name: 'Git', label: 'Git / GitHub', icon: `${import.meta.env.BASE_URL}tool-logos/git.svg` }
 ];
 
 const youtubeVideos = [
@@ -471,8 +470,9 @@ const experienceItems = [
             project.key === 'ai-data' && (
               <div class="tool-logo-row" aria-label="Herramientas de IA y bases de datos">
                 {aiTools.map((tool) => (
-                  <span class="tool-logo" title={tool.name} aria-label={tool.name}>
+                  <span class="tool-logo" title={tool.label} aria-label={tool.label}>
                     <img src={tool.icon} alt={tool.name} loading="lazy" width="24" height="24" />
+                    <span class="tool-label">{tool.label}</span>
                   </span>
                 ))}
               </div>
