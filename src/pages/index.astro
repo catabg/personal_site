@@ -1,217 +1,448 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import instagramFeed from '../data/instagram-feed.json';
 
 const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 const linkedInUrl = 'https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/';
 const xUrl = 'https://x.com/catarsis_______';
 const githubUrl = 'https://github.com/catabg';
 const profileImageUrl = `${import.meta.env.BASE_URL}profile.jpg`;
+const instagramProfileUrl = 'https://www.instagram.com/box_club_col/';
+const instagramPosts = instagramFeed.slice(0, 6);
 
-const experienceItems = [
+const socialLinks = [
+  { id: 'linkedin', label: 'LinkedIn', url: linkedInUrl },
+  { id: 'x', label: 'X', url: xUrl },
+  { id: 'github', label: 'GitHub', url: githubUrl }
+];
+
+const focusAreas = [
   {
-    role: 'Chief Editor & Content Manager',
-    company: 'Freelancer',
-    period: '2025 - Presente',
-    description:
-      'Creación de contenido para redes sociales, grabación y edición de videos, creación de copys, programación de contenido y diseño de piezas.'
+    es: 'Investigación aplicada con IA para comunicación, análisis y mejora de procesos digitales.',
+    en: 'Applied AI research for communication, analysis, and improvement of digital processes.'
   },
   {
-    role: 'Noble Union',
-    company: 'Practicas profesionales',
-    period: 'Enero - Julio de 2025',
-    description:
-      'Apoyo en la gestión de la información interna y creación de estrategias para fortalecer la cultura organizacional.'
+    es: 'Desempeño como Virtual Assistant en tareas operativas, creación de databases y organización de información.',
+    en: 'Virtual Assistant work focused on operational tasks, database creation, and information organization.'
   },
   {
-    role: 'Auxiliar Administrativo',
-    company: 'Coordinacion Academica de Extension Cultural - Universidad de Antioquia',
-    period: 'Mayo 2023 - Enero 2024',
-    description:
-      'Coordinación de logística de eventos, planeación estratégica, investigación y proyectos académicos. Creación de piezas gráficas, contenidos para redes, copys y formularios.'
-  },
-  {
-    role: 'Community Manager',
-    company: 'Proyecto @utrabetaureta',
-    period: 'Abril 2023 - Noviembre 2023',
-    description:
-      'Manejo de redes sociales, coordinación de logística de eventos, creación de copys y registros audiovisuales.'
-  },
-  {
-    role: 'Team Leader Customer Services',
-    company: 'Xtendo Group',
-    period: 'Abril 2021 - Febrero 2023',
-    description:
-      'Supervisión de equipos de servicio al cliente para Chile y Perú, con uso de herramientas ofimáticas y plataformas de atención.'
-  },
-  {
-    role: 'Gestor de conocimiento',
-    company: 'Secretaría de Movilidad de Medellín',
-    period: 'Julio - Diciembre 2019',
-    description:
-      'Intervenciones pedagógicas de seguridad vial en calles, empresas e instituciones públicas por medio de talleres con acercamiento a la comunidad.'
+    es: 'Creación de contenido para redes sociales con enfoque estratégico, narrativo y audiovisual.',
+    en: 'Social media content creation with strategic, narrative, and audiovisual focus.'
   }
 ];
 
-const skills = [
-  'Proactividad',
-  'Fácil aprendizaje',
-  'Realización de eventos',
-  'Practicidad',
-  'Resolución de conflictos',
-  'Trabajo en equipo'
+const projectLog = [
+  {
+    key: 'content',
+    type: { es: 'Content creation', en: 'Content creation' },
+    title: { es: 'Creación de contenido', en: 'Content creation' },
+    description: {
+      es: 'Diseño de piezas, edición de video y programación de contenido para Box Club (tienda de CrossFit).',
+      en: 'Design assets, video editing, and content scheduling for Box Club (CrossFit store).'
+    },
+    url: ''
+  },
+  {
+    key: 'video',
+    type: { es: 'YouTube / DaVinci Resolve', en: 'YouTube / DaVinci Resolve' },
+    title: { es: 'Edición de video', en: 'Video editing' },
+    description: {
+      es: 'Videos editados y publicados con enfoque narrativo y ritmo visual.',
+      en: 'Edited and published videos with narrative focus and visual pacing.'
+    },
+    url: ''
+  },
+  {
+    key: 'research',
+    type: { es: 'Investigación', en: 'Research' },
+    title: { es: 'Paper académico (UdeA)', en: 'Academic paper (UdeA)' },
+    description: {
+      es: 'Trabajo alojado en el repositorio de la Universidad de Antioquia.',
+      en: 'Work hosted in the Universidad de Antioquia repository.'
+    },
+    url: 'https://bibliotecadigital.udea.edu.co/entities/publication/abe87a33-d2b6-464d-89b4-435ab92a2d61'
+  },
+  {
+    key: 'ai-data',
+    type: { es: 'IA + Bases de Datos', en: 'AI + Databases' },
+    title: { es: 'Asistentes y data workflows', en: 'Assistants and data workflows' },
+    description: {
+      es: 'Sistemas para capturar datos, automatizar tareas y centralizar información.',
+      en: 'Systems to capture data, automate tasks, and centralize information.'
+    },
+    url: ''
+  }
 ];
 
-const languages = ['Español: Nativo', 'Inglés: C1 sin certificación', 'Italiano: Básico'];
+const youtubeVideos = [
+  {
+    id: 'o5aoaCHlARo',
+    url: 'https://youtu.be/o5aoaCHlARo',
+    title: {
+      es: "Don't learn n8n in 2026 - do THIS instead",
+      en: "Don't learn n8n in 2026 - do THIS instead"
+    }
+  },
+  {
+    id: 'utXKeNvJCws',
+    url: 'https://youtu.be/utXKeNvJCws',
+    title: {
+      es: "I Canceled Claude Code. Here's Why I Came Back.",
+      en: "I Canceled Claude Code. Here's Why I Came Back."
+    }
+  },
+  {
+    id: 'U686qx0IubM',
+    url: 'https://youtu.be/U686qx0IubM',
+    title: {
+      es: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide",
+      en: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide"
+    }
+  },
+  {
+    id: 'YLQvQ2MD2Y8',
+    url: 'https://youtu.be/YLQvQ2MD2Y8',
+    title: {
+      es: 'How to Use Claude Code with Stata — PhD Economist Explains',
+      en: 'How to Use Claude Code with Stata — PhD Economist Explains'
+    }
+  },
+  {
+    id: 'vJ0q3fjsvJs',
+    url: 'https://youtu.be/vJ0q3fjsvJs',
+    title: {
+      es: 'How this poker expert made $150k in 12 days with Claude Code',
+      en: 'How this poker expert made $150k in 12 days with Claude Code'
+    }
+  },
+  {
+    id: '4VJmOcwWY_A',
+    url: 'https://youtu.be/4VJmOcwWY_A',
+    title: {
+      es: 'How to Make $0 with AI in 2027',
+      en: 'How to Make $0 with AI in 2027'
+    }
+  },
+  {
+    id: 'N0MEhjbo-Do',
+    url: 'https://youtu.be/N0MEhjbo-Do',
+    title: {
+      es: "Why Clawdbot Won't Help You",
+      en: "Why Clawdbot Won't Help You"
+    }
+  },
+  {
+    id: 'IQ1_5jPiQoE',
+    url: 'https://youtu.be/IQ1_5jPiQoE',
+    title: {
+      es: 'This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers',
+      en: 'This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers'
+    }
+  }
+];
 
-const tools = [
-  'Canva',
-  'DaVinci Resolve',
-  'MS Office (Excel, Word, Power Point, One Drive, Teams)',
-  'Google Suite (Docs, Sheets, Scholar, Traductor, Meet, Classroom)',
-  'ChatGPT, Codex y otras herramientas de IA',
-  'Social Media (Instagram, Facebook, YouTube, TikTok, Spotify, LinkedIn)'
+const experienceItems = [
+  {
+    role: { es: 'Chief Editor & Content Manager', en: 'Chief Editor & Content Manager' },
+    company: { es: 'Freelancer', en: 'Freelancer' },
+    period: { es: '2025 - Presente', en: '2025 - Present' },
+    description: {
+      es: 'Contenido para redes, edición de video, copywriting y diseño de piezas.',
+      en: 'Social content, video editing, copywriting, and visual asset design.'
+    }
+  },
+  {
+    role: { es: 'Prácticas profesionales', en: 'Professional Internship' },
+    company: { es: 'Noble Union', en: 'Noble Union' },
+    period: { es: 'Enero - Julio 2025', en: 'January - July 2025' },
+    description: {
+      es: 'Gestión de información interna y estrategias de cultura organizacional.',
+      en: 'Internal information management and organizational culture strategy.'
+    }
+  },
+  {
+    role: { es: 'Auxiliar Administrativo', en: 'Administrative Assistant' },
+    company: {
+      es: 'Coordinación Académica de Extensión Cultural, UdeA',
+      en: 'Academic Coordination for Cultural Extension, UdeA'
+    },
+    period: { es: 'Mayo 2023 - Enero 2024', en: 'May 2023 - January 2024' },
+    description: {
+      es: 'Logística de eventos, investigación y apoyo de comunicación institucional.',
+      en: 'Event logistics, research, and institutional communication support.'
+    }
+  },
+  {
+    role: { es: 'Community Manager', en: 'Community Manager' },
+    company: { es: 'Proyecto @utrabetaureta', en: 'Project @utrabetaureta' },
+    period: { es: 'Abril 2023 - Noviembre 2023', en: 'April 2023 - November 2023' },
+    description: {
+      es: 'Gestión de redes, copywriting y cobertura audiovisual.',
+      en: 'Social media management, copywriting, and audiovisual coverage.'
+    }
+  }
 ];
 ---
 
-<BaseLayout title="Catalina Brand Gómez - Comunicadora" description="Portafolio personal de comunicación">
-  <section class="hero">
-    <div>
-      <p class="eyebrow">Comunicación, investigación y estrategia digital</p>
+<BaseLayout title="Catalina Brand Gómez - Portafolio" description="Sitio personal y portafolio de Catalina Brand Gómez">
+  <section class="masthead">
+    <div class="identity">
+      <div class="control-row">
+        <div class="lang-switch" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
+          <button class="lang-btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span aria-hidden="true">◐</span>
+          <span data-theme-label>Modo noche</span>
+        </button>
+      </div>
+
       <h1>Catalina Brand Gómez</h1>
-      <p>
-        Comunicadora con énfasis en investigación y comunicación digital. Me enfoco en procesos creativos,
-        creación de estrategias comunicativas, gestión de proyectos y producción de eventos.
+      <p class="headline">
+        <span class="i18n es">Comunicadora</span>
+        <span class="i18n en">Communicator</span>
       </p>
+      <p class="location">
+        <span class="i18n es">Medellín, Colombia</span>
+        <span class="i18n en">Medellin, Colombia</span>
+      </p>
+      <p class="location">Universidad de Antioquia</p>
+
+      <div class="social-row">
+        <a class="email-link" href="mailto:catabg1410@gmail.com" aria-label="Enviar email">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.25 6.9 5.14 6.9-5.14H5.1Zm13.4 12a1.25 1.25 0 0 0 1.25-1.25V8.38l-7.3 5.44a.75.75 0 0 1-.9 0l-7.3-5.44v8.87c0 .7.56 1.25 1.25 1.25h12.5Z"
+            />
+          </svg>
+          <span>catabg1410@gmail.com</span>
+        </a>
+
+        <div class="icon-links" aria-label="Redes sociales">
+          {socialLinks.map((item) => (
+            <a href={item.url} target="_blank" rel="noreferrer" aria-label={item.label}>
+              {item.id === 'linkedin' && (
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.98 3.5C3.88 3.5 3 4.39 3 5.48S3.88 7.46 4.98 7.46c1.09 0 1.98-.88 1.98-1.98S6.07 3.5 4.98 3.5ZM3.27 8.94h3.42V20H3.27V8.94Zm5.55 0h3.28v1.57h.05c.46-.86 1.57-1.77 3.24-1.77 3.47 0 4.11 2.28 4.11 5.24V20h-3.42v-5.33c0-1.27-.02-2.91-1.77-2.91-1.77 0-2.04 1.38-2.04 2.81V20H8.82V8.94Z" />
+                </svg>
+              )}
+              {item.id === 'x' && (
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.9 2h3.7l-8.1 9.26L24 22h-7.23l-5.66-7.4L4.64 22H1l8.66-9.9L0 2h7.42l5.11 6.75L18.9 2Zm-1.28 17.81h2.05L6.3 4.08H4.1L17.62 19.8Z" />
+                </svg>
+              )}
+              {item.id === 'github' && (
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.41-4.04-1.41-.55-1.38-1.33-1.74-1.33-1.74-1.08-.74.09-.72.09-.72 1.19.08 1.82 1.2 1.82 1.2 1.06 1.8 2.78 1.28 3.46.97.1-.76.42-1.28.76-1.57-2.66-.3-5.47-1.32-5.47-5.87 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.11-3.16 0 0 1-.32 3.3 1.21a11.42 11.42 0 0 1 6 0c2.3-1.53 3.3-1.21 3.3-1.21.65 1.64.23 2.86.11 3.16.77.83 1.24 1.88 1.24 3.17 0 4.56-2.81 5.57-5.49 5.86.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3Z" />
+                </svg>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+
       <div class="actions">
-        <a class="cta" href="#experiencia">Ver experiencia</a>
-        <a class="cta" href={cvUrl}>Descargar CV</a>
+        <a class="cta" href={cvUrl}>
+          <span class="i18n es">Descargar CV</span>
+          <span class="i18n en">Download CV</span>
+        </a>
       </div>
     </div>
-    <div class="hero-card">
-      <img class="profile-photo" src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gómez" />
-      <div class="tag">Contacto directo</div>
-      <h3>catabg1410@gmail.com</h3>
-      <p>Disponible para oportunidades en comunicación, contenido digital y gestión de proyectos.</p>
-      <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">
-        Ver LinkedIn
-      </a>
-      <div class="actions">
-        <a class="cta" href={xUrl} target="_blank" rel="noreferrer">
-          Ver X
-        </a>
-        <a class="cta" href={githubUrl} target="_blank" rel="noreferrer">
-          Ver GitHub
-        </a>
-      </div>
+
+    <div class="photo-wrap">
+      <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gómez" class="profile-photo" />
     </div>
   </section>
 
-  <section id="sobre-mi" class="section">
-    <h2>Sobre mí</h2>
-    <div class="card">
-      <p>
-        Comunico ideas complejas con claridad y enfoque práctico. He trabajado en creación de contenido,
-        logística de eventos, coordinación académica, servicio al cliente y fortalecimiento de cultura
-        organizacional.
-      </p>
-    </div>
+  <section id="ahora" class="stream-section">
+    <h2>
+      <span class="i18n es">Ahora</span>
+      <span class="i18n en">Now</span>
+    </h2>
+    <ul class="flow-list">
+      {focusAreas.map((area) => (
+        <li>
+          <span class="i18n es">{area.es}</span>
+          <span class="i18n en">{area.en}</span>
+        </li>
+      ))}
+    </ul>
   </section>
 
-  <section id="experiencia" class="section">
-    <h2>Experiencia</h2>
-    <p class="section-intro">Resumen de roles y responsabilidades principales.</p>
-    <div class="timeline">
-      {experienceItems.map((item) => (
-        <article class="card">
-          <h3>{item.role}</h3>
-          <p class="job-meta">
-            {item.company} • {item.period}
+  <section id="proyectos" class="stream-section">
+    <h2>
+      <span class="i18n es">Bitácora de proyectos</span>
+      <span class="i18n en">Project log</span>
+    </h2>
+    <p>
+      <span class="i18n es">Estructura lista para Canva, YouTube/DaVinci y repositorios académicos.</span>
+      <span class="i18n en">Structure ready for Canva, YouTube/DaVinci, and academic repositories.</span>
+    </p>
+    <div class="stream-list">
+      {projectLog.map((project) => (
+        <article>
+          <p class="item-meta">
+            <span class="i18n es">{project.type.es}</span>
+            <span class="i18n en">{project.type.en}</span>
           </p>
-          <p>{item.description}</p>
+          <h3>
+            <span class="i18n es">{project.title.es}</span>
+            <span class="i18n en">{project.title.en}</span>
+          </h3>
+          <p>
+            <span class="i18n es">{project.description.es}</span>
+            <span class="i18n en">{project.description.en}</span>
+          </p>
+          {
+            project.key !== 'video' &&
+              project.key !== 'content' &&
+              (project.url ? (
+                <a class="mini-link" href={project.url} target="_blank" rel="noreferrer">
+                  <span class="i18n es">Ver proyecto</span>
+                  <span class="i18n en">View project</span>
+                </a>
+              ) : (
+                <span class="mini-link muted">
+                  <span class="i18n es">Enlace por agregar</span>
+                  <span class="i18n en">Link to be added</span>
+                </span>
+              ))
+          }
+          {
+            project.key === 'video' && (
+              <>
+                <p class="video-note">
+                  <span class="i18n es">
+                    Realización de tomas, edición en DaVinci Resolve y diseño de thumbnails para cada video.
+                  </span>
+                  <span class="i18n en">
+                    Shot production, DaVinci Resolve editing, and thumbnail design for each video.
+                  </span>
+                </p>
+                <div class="video-grid">
+                  {youtubeVideos.map((video) => (
+                    <a class="video-card" href={video.url} target="_blank" rel="noreferrer">
+                      <img
+                        src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                        alt={video.title.es}
+                        loading="lazy"
+                        width="480"
+                        height="360"
+                      />
+                      <h3>
+                        <span class="i18n es">{video.title.es}</span>
+                        <span class="i18n en">{video.title.en}</span>
+                      </h3>
+                    </a>
+                  ))}
+                </div>
+              </>
+            )
+          }
+          {
+            project.key === 'content' && (
+              <>
+                <p class="video-note">
+                  <span class="i18n es">
+                    Responsable de diseño de piezas, redacción de copy, edición de videos y programación del
+                    contenido de la tienda.
+                  </span>
+                  <span class="i18n en">
+                    Responsible for design assets, copywriting, video editing, and content scheduling for the
+                    store.
+                  </span>
+                </p>
+                <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
+                  <span class="i18n es">Ver perfil en Instagram</span>
+                  <span class="i18n en">View Instagram profile</span>
+                </a>
+                <div class="instagram-grid">
+                  {instagramPosts.map((post) => (
+                    <a
+                      class="instagram-card"
+                      href={post.postUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img
+                        src={`${import.meta.env.BASE_URL}${post.image}`}
+                        alt={`Post de Instagram @box_club_col (${post.shortcode})`}
+                        loading="lazy"
+                        width="320"
+                        height="320"
+                      />
+                      <p class="instagram-copy">{post.caption || 'Copywriting de la pieza en Instagram.'}</p>
+                    </a>
+                  ))}
+                </div>
+              </>
+            )
+          }
         </article>
       ))}
     </div>
   </section>
 
-  <section id="estudios" class="section">
-    <h2>Estudios</h2>
-    <div class="split">
-      <article class="card">
-        <h3>2026 - Pregrado en Comunicaciones</h3>
-        <p>Universidad de Antioquia</p>
-      </article>
-      <article class="card">
-        <h3>2016 - Bachiller</h3>
-        <p>Diocesano Laura Montoya - Chigorodó, Antioquia</p>
-      </article>
+  <section id="experiencia" class="stream-section">
+    <h2>
+      <span class="i18n es">Experiencia</span>
+      <span class="i18n en">Experience</span>
+    </h2>
+    <div class="stream-list">
+      {experienceItems.map((item) => (
+        <article class="experience-item">
+          <div>
+            <h3>
+              <span class="i18n es">{item.role.es}</span>
+              <span class="i18n en">{item.role.en}</span>
+            </h3>
+            <p class="item-company">
+              <span class="i18n es">{item.company.es}</span>
+              <span class="i18n en">{item.company.en}</span>
+            </p>
+            <p>
+              <span class="i18n es">{item.description.es}</span>
+              <span class="i18n en">{item.description.en}</span>
+            </p>
+          </div>
+          <p class="item-meta">
+            <span class="i18n es">{item.period.es}</span>
+            <span class="i18n en">{item.period.en}</span>
+          </p>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section id="habilidades" class="section">
-    <h2>Habilidades y conocimientos</h2>
-    <div class="split">
-      <article class="card">
-        <h3>Habilidades</h3>
-        <ul class="list">
-          {skills.map((skill) => (
-            <li>{skill}</li>
-          ))}
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Idiomas</h3>
-        <ul class="list">
-          {languages.map((language) => (
-            <li>{language}</li>
-          ))}
-        </ul>
-      </article>
-    </div>
-    <article class="card">
-      <h3>Conocimientos técnicos</h3>
-      <ul class="list">
-        {tools.map((tool) => (
-          <li>{tool}</li>
-        ))}
-      </ul>
-    </article>
+  <section id="cv" class="stream-section">
+    <h2>CV</h2>
+    <p>
+      <span class="i18n es">El CV completo sigue disponible en PDF para la versión detallada de tu trayectoria.</span>
+      <span class="i18n en">The full CV is available in PDF for the detailed version of your background.</span>
+    </p>
+    <a class="cta primary" href={cvUrl}>
+      <span class="i18n es">Descargar CV</span>
+      <span class="i18n en">Download CV</span>
+    </a>
   </section>
 
-  <section id="cv" class="section">
-    <h2>Curriculum Vitae</h2>
-    <div class="split">
-      <div class="card">
-        <h3>Descargar CV en PDF</h3>
-        <p>Este boton descarga el archivo actualizado desde <code>public/cv.pdf</code>.</p>
-        <a class="cta" href={cvUrl}>Descargar CV</a>
-      </div>
-      <div class="card">
-        <h3>Perfil profesional</h3>
-        <p>
-          Experiencia en comunicación digital, producción audiovisual, investigación, diseño de piezas,
-          copys y coordinación de equipos.
-        </p>
-        <span class="tag">Comunicación • Video • Estrategia</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto" class="section">
-    <h2>Contacto</h2>
-    <div class="card">
-      <p>Correo principal para colaboraciones, oportunidades laborales y proyectos.</p>
-      <div class="actions">
-        <a class="cta" href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
-        <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-        <a class="cta" href={xUrl} target="_blank" rel="noreferrer">
-          X
-        </a>
-        <a class="cta" href={githubUrl} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-      </div>
-    </div>
+  <section id="contacto" class="stream-section">
+    <h2>
+      <span class="i18n es">Contacto</span>
+      <span class="i18n en">Contact</span>
+    </h2>
+    <p>
+      <span class="i18n es">Disponible para colaboraciones en comunicación, IA aplicada y organización de datos.</span>
+      <span class="i18n en">Available for collaborations in communication, applied AI, and data organization.</span>
+    </p>
+    <a class="email-link" href="mailto:catabg1410@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.25 6.9 5.14 6.9-5.14H5.1Zm13.4 12a1.25 1.25 0 0 0 1.25-1.25V8.38l-7.3 5.44a.75.75 0 0 1-.9 0l-7.3-5.44v8.87c0 .7.56 1.25 1.25 1.25h12.5Z"
+        />
+      </svg>
+      <span>catabg1410@gmail.com</span>
+    </a>
   </section>
 </BaseLayout>
