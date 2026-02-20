@@ -37,8 +37,8 @@ const projectLog = [
     type: { es: 'Content creation', en: 'Content creation' },
     title: { es: 'Creación de contenido', en: 'Content creation' },
     description: {
-      es: 'Diseño de piezas, edición de video y programación de contenido para Box Club (tienda de CrossFit).',
-      en: 'Design assets, video editing, and content scheduling for Box Club (CrossFit store).'
+      es: 'Diseño de piezas, edición de video y programación de contenido para proyectos editoriales y redes sociales.',
+      en: 'Design assets, video editing, and content scheduling for editorial and social media projects.'
     },
     url: ''
   },
@@ -55,10 +55,10 @@ const projectLog = [
   {
     key: 'research',
     type: { es: 'Investigación', en: 'Research' },
-    title: { es: 'Paper académico (UdeA)', en: 'Academic paper (UdeA)' },
+    title: { es: 'Paper académico', en: 'Academic paper' },
     description: {
-      es: 'Trabajo alojado en el repositorio de la Universidad de Antioquia.',
-      en: 'Work hosted in the Universidad de Antioquia repository.'
+      es: 'Así Suena La Protesta: un análisis del impacto en el proceso de opinión pública de La caza de Nariño – AlcolirykoZ en el marco del estallido del 2021 en Colombia a través de Twitter. Trabajo alojado en el repositorio de la Universidad de Antioquia.',
+      en: 'Así Suena La Protesta: an analysis of the impact on the public opinion process of La caza de Nariño – AlcolirykoZ in the context of Colombia’s 2021 social uprising through Twitter. Work hosted in the Universidad de Antioquia repository.'
     },
     url: 'https://bibliotecadigital.udea.edu.co/entities/publication/abe87a33-d2b6-464d-89b4-435ab92a2d61'
   },
@@ -72,6 +72,39 @@ const projectLog = [
     },
     url: ''
   }
+];
+
+const portfolioBaseUrl = `${import.meta.env.BASE_URL}portfolio/canva`;
+const numberedFiles = (total) => Array.from({ length: total }, (_, index) => `${index + 1}.png`);
+const prefixedFiles = (prefix, total) => Array.from({ length: total }, (_, index) => `${prefix}-${index + 1}.png`);
+
+const canvaCampaigns = [
+  { slug: 'il-bracco', title: { es: 'Il Bracco', en: 'Il Bracco' }, files: numberedFiles(4) },
+  { slug: 'dia-de-muertos-scottsdale', title: { es: 'Día de Muertos Scottsdale', en: 'Día de Muertos Scottsdale' }, files: numberedFiles(4) },
+  { slug: 'dreamy-draw-music-festival', title: { es: 'Dreamy Draw Music Festival', en: 'Dreamy Draw Music Festival' }, files: numberedFiles(4) },
+  { slug: 'western-week', title: { es: 'Western Week', en: 'Western Week' }, files: numberedFiles(3) },
+  { slug: 'la-la-land-kind-cafe', title: { es: 'La La Land Kind Cafe', en: 'La La Land Kind Cafe' }, files: numberedFiles(4) },
+  { slug: 'cafe-monarch', title: { es: 'Cafe Monarch', en: 'Cafe Monarch' }, files: numberedFiles(3) },
+  { slug: 'city-winery', title: { es: 'City Winery', en: 'City Winery' }, files: numberedFiles(4) },
+  { slug: 'virgen-del-carmen', title: { es: 'Virgen del Carmen (ES/EN)', en: 'Virgen del Carmen (ES/EN)' }, files: [...prefixedFiles('es', 5), ...prefixedFiles('en', 5)] },
+  { slug: 'carrusel-julio-25-28', title: { es: 'Carrusel Julio 25-28 (ES/EN)', en: 'July 25-28 Carousel (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] },
+  { slug: 'estratos-medellin-espanol', title: { es: 'Estratos Medellín (Español)', en: 'Estratos Medellin (Spanish)' }, files: numberedFiles(6) },
+  { slug: 'navidad-en-medellin-espanol', title: { es: 'Navidad en Medellín (Español)', en: 'Christmas in Medellin (Spanish)' }, files: numberedFiles(5) },
+  { slug: 'conciertos-medellin', title: { es: 'Conciertos Medellín (ES/EN)', en: 'Medellin Concerts (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] }
+].map((campaign) => ({
+  ...campaign,
+  slides: campaign.files.map((file, index) => ({
+    src: `${portfolioBaseUrl}/${campaign.slug}/${file}`,
+    index: index + 1
+  }))
+}));
+
+const aiTools = [
+  { name: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
+  { name: 'ChatGPT', icon: `${import.meta.env.BASE_URL}tool-logos/chatgpt.svg` },
+  { name: 'OpenAI', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
+  { name: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
+  { name: 'Git', icon: `${import.meta.env.BASE_URL}tool-logos/git.svg` }
 ];
 
 const youtubeVideos = [
@@ -152,7 +185,7 @@ const experienceItems = [
     }
   },
   {
-    role: { es: 'Prácticas profesionales', en: 'Professional Internship' },
+    role: { es: 'Practicante de Comunicaciones y Cultura', en: 'Communications and Culture Intern' },
     company: { es: 'Noble Union', en: 'Noble Union' },
     period: { es: 'Enero - Julio 2025', en: 'January - July 2025' },
     description: {
@@ -174,11 +207,29 @@ const experienceItems = [
   },
   {
     role: { es: 'Community Manager', en: 'Community Manager' },
-    company: { es: 'Proyecto @utrabetaureta', en: 'Project @utrabetaureta' },
+    company: { es: 'Proyecto @ruateatro', en: 'Project @ruateatro' },
     period: { es: 'Abril 2023 - Noviembre 2023', en: 'April 2023 - November 2023' },
     description: {
       es: 'Gestión de redes, copywriting y cobertura audiovisual.',
       en: 'Social media management, copywriting, and audiovisual coverage.'
+    }
+  },
+  {
+    role: { es: 'Team Leader de Customer Service', en: 'Customer Service Team Leader' },
+    company: { es: 'Xtendo Group', en: 'Xtendo Group' },
+    period: { es: 'Abril 2021 - Febrero 2023', en: 'April 2021 - February 2023' },
+    description: {
+      es: 'Supervisión de equipos de servicio al cliente para Chile y Perú, con uso de herramientas ofimáticas y plataformas de atención.',
+      en: 'Customer service team supervision for Chile and Peru, using office tools and support platforms.'
+    }
+  },
+  {
+    role: { es: 'Gestora pedagógica', en: 'Pedagogical Manager' },
+    company: { es: 'Secretaría de Movilidad de Medellín', en: 'Mobility Secretariat of Medellin' },
+    period: { es: 'Julio - Diciembre 2019', en: 'July - December 2019' },
+    description: {
+      es: 'Intervenciones pedagógicas de seguridad vial en calles, empresas e instituciones públicas.',
+      en: 'Road safety pedagogical interventions in streets, companies, and public institutions.'
     }
   }
 ];
@@ -297,6 +348,7 @@ const experienceItems = [
           {
             project.key !== 'video' &&
               project.key !== 'content' &&
+              project.key !== 'ai-data' &&
               (project.url ? (
                 <a class="mini-link" href={project.url} target="_blank" rel="noreferrer">
                   <span class="i18n es">Ver proyecto</span>
@@ -343,40 +395,91 @@ const experienceItems = [
           {
             project.key === 'content' && (
               <>
-                <p class="video-note">
-                  <span class="i18n es">
-                    Responsable de diseño de piezas, redacción de copy, edición de videos y programación del
-                    contenido de la tienda.
-                  </span>
-                  <span class="i18n en">
-                    Responsible for design assets, copywriting, video editing, and content scheduling for the
-                    store.
-                  </span>
-                </p>
-                <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
-                  <span class="i18n es">Ver perfil en Instagram</span>
-                  <span class="i18n en">View Instagram profile</span>
-                </a>
-                <div class="instagram-grid">
-                  {instagramPosts.map((post) => (
-                    <a
-                      class="instagram-card"
-                      href={post.postUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <img
-                        src={`${import.meta.env.BASE_URL}${post.image}`}
-                        alt={`Post de Instagram @box_club_col (${post.shortcode})`}
-                        loading="lazy"
-                        width="320"
-                        height="320"
-                      />
-                      <p class="instagram-copy">{post.caption || 'Copywriting de la pieza en Instagram.'}</p>
-                    </a>
-                  ))}
+                <div class="content-subsection">
+                  <p class="content-subtitle">
+                    <span class="i18n es">NEWSLETTERS</span>
+                    <span class="i18n en">NEWSLETTERS</span>
+                  </p>
+                  <p class="video-note">
+                    <span class="i18n es">Portafolio visual por campaña (piezas exportadas desde Canva).</span>
+                    <span class="i18n en">Visual campaign portfolio (final assets exported from Canva).</span>
+                  </p>
+                  <div class="canva-grid">
+                    {canvaCampaigns.map((campaign) => (
+                      <article class="canva-campaign" data-carousel tabindex="0">
+                        <div class="canva-frame">
+                          {campaign.slides.map((slide, slideIndex) => (
+                            <img
+                              src={slide.src}
+                              alt={`Campaña ${campaign.title.es} - pieza ${slide.index}`}
+                              class:list={['canva-slide', slideIndex === 0 && 'is-active']}
+                              loading="lazy"
+                              width="1080"
+                              height="1080"
+                              data-carousel-slide
+                              aria-hidden={slideIndex === 0 ? 'false' : 'true'}
+                            />
+                          ))}
+                          <button type="button" class="canva-arrow prev" data-carousel-prev aria-label={`Pieza anterior de ${campaign.title.es}`}>
+                            ‹
+                          </button>
+                          <button type="button" class="canva-arrow next" data-carousel-next aria-label={`Siguiente pieza de ${campaign.title.es}`}>
+                            ›
+                          </button>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="content-subsection">
+                  <p class="content-subtitle">BOX CLUB</p>
+                  <p class="video-note">
+                    <span class="i18n es">
+                      Responsable de diseño de piezas, redacción de copy, edición de videos y programación del
+                      contenido de la tienda.
+                    </span>
+                    <span class="i18n en">
+                      Responsible for design assets, copywriting, video editing, and content scheduling for the
+                      store.
+                    </span>
+                  </p>
+                  <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
+                    <span class="i18n es">Ver perfil en Instagram</span>
+                    <span class="i18n en">View Instagram profile</span>
+                  </a>
+                  <div class="instagram-grid">
+                    {instagramPosts.map((post) => (
+                      <a
+                        class="instagram-card"
+                        href={post.postUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}${post.image}`}
+                          alt={`Post de Instagram @box_club_col (${post.shortcode})`}
+                          loading="lazy"
+                          width="320"
+                          height="320"
+                        />
+                        <p class="instagram-copy">{post.caption || 'Copywriting de la pieza en Instagram.'}</p>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </>
+            )
+          }
+          {
+            project.key === 'ai-data' && (
+              <div class="tool-logo-row" aria-label="Herramientas de IA y bases de datos">
+                {aiTools.map((tool) => (
+                  <span class="tool-logo" title={tool.name} aria-label={tool.name}>
+                    <img src={tool.icon} alt={tool.name} loading="lazy" width="24" height="24" />
+                  </span>
+                ))}
+              </div>
             )
           }
         </article>
@@ -445,4 +548,59 @@ const experienceItems = [
       <span>catabg1410@gmail.com</span>
     </a>
   </section>
+
+  <script is:inline>
+    (() => {
+      const carousels = document.querySelectorAll('[data-carousel]');
+
+      carousels.forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
+        const prevBtn = carousel.querySelector('[data-carousel-prev]');
+        const nextBtn = carousel.querySelector('[data-carousel-next]');
+        const currentNode = carousel.querySelector('[data-carousel-current]');
+        const totalSlides = slides.length;
+        let current = 0;
+
+        const render = () => {
+          slides.forEach((slide, index) => {
+            const isActive = index === current;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+          });
+
+          if (currentNode) {
+            currentNode.textContent = String(current + 1);
+          }
+        };
+
+        if (totalSlides <= 1) {
+          prevBtn?.setAttribute('hidden', '');
+          nextBtn?.setAttribute('hidden', '');
+          return;
+        }
+
+        prevBtn?.addEventListener('click', () => {
+          current = (current - 1 + totalSlides) % totalSlides;
+          render();
+        });
+
+        nextBtn?.addEventListener('click', () => {
+          current = (current + 1) % totalSlides;
+          render();
+        });
+
+        carousel.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            prevBtn?.click();
+          } else if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            nextBtn?.click();
+          }
+        });
+
+        render();
+      });
+    })();
+  </script>
 </BaseLayout>
