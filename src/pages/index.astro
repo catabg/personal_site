@@ -4,7 +4,7 @@ import instagramFeed from '../data/instagram-feed.json';
 
 const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 const linkedInUrl = 'https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/';
-const xUrl = 'https://x.com/catarsis_______';
+const upworkUrl = 'https://www.upwork.com/';
 const githubUrl = 'https://github.com/catabg';
 const profileImageUrl = `${import.meta.env.BASE_URL}profile.jpg`;
 const instagramProfileUrl = 'https://www.instagram.com/box_club_col/';
@@ -12,65 +12,120 @@ const instagramPosts = instagramFeed.slice(0, 6);
 
 const socialLinks = [
   { id: 'linkedin', label: 'LinkedIn', url: linkedInUrl },
-  { id: 'x', label: 'X', url: xUrl },
+  { id: 'upwork', label: 'Upwork', url: upworkUrl },
   { id: 'github', label: 'GitHub', url: githubUrl }
 ];
 
-const focusAreas = [
+const heroStats = [
+  { value: '5h', es: 'para entregar un paquete de 5 carruseles', en: 'to deliver a 5-carousel package' },
+  { value: '3', es: 'capas de valor: research, content y operations', en: 'value layers: research, content, and operations' },
+  { value: '1', es: 'narrativa coherente para LinkedIn, Upwork y portfolio', en: 'cohesive narrative across LinkedIn, Upwork, and portfolio' }
+];
+
+const valuePillars = [
   {
-    es: 'Investigación aplicada con IA para comunicación, análisis y mejora de procesos digitales.',
-    en: 'Applied AI research for communication, analysis, and improvement of digital processes.'
+    title: { es: 'Research-first', en: 'Research-first' },
+    body: {
+      es: 'Investigo contexto, detecto lo importante y organizo la informacion antes de producir.',
+      en: 'I research context, spot what matters, and organize information before producing.'
+    }
   },
   {
-    es: 'Desempeño como Virtual Assistant en tareas operativas, creación de databases y organización de información.',
-    en: 'Virtual Assistant work focused on operational tasks, database creation, and information organization.'
+    title: { es: 'Execution with structure', en: 'Execution with structure' },
+    body: {
+      es: 'Convierto briefs, noticias o ideas sueltas en entregables claros, visuales y listos para publicar.',
+      en: 'I turn briefs, news, or rough ideas into clear, visual, ready-to-publish deliverables.'
+    }
   },
   {
-    es: 'Creación de contenido para redes sociales con enfoque estratégico, narrativo y audiovisual.',
-    en: 'Social media content creation with strategic, narrative, and audiovisual focus.'
+    title: { es: 'Creative operations', en: 'Creative operations' },
+    body: {
+      es: 'Combino contenido, sistemas y soporte operativo para que marcas y creators avancen mas rapido.',
+      en: 'I combine content, systems, and operational support so brands and creators can move faster.'
+    }
   }
 ];
 
-const projectLog = [
+const strengths = [
   {
-    key: 'content',
-    type: { es: 'Content creation', en: 'Content creation' },
-    title: { es: 'Creación de contenido', en: 'Content creation' },
-    description: {
-      es: 'Diseño de piezas, edición de video y programación de contenido para proyectos editoriales y redes sociales.',
-      en: 'Design assets, video editing, and content scheduling for editorial and social media projects.'
-    },
-    url: ''
+    label: { es: 'Investigacion y sintesis', en: 'Research and synthesis' },
+    detail: {
+      es: 'Lectura de contexto, busqueda de fuentes, bases de datos y organizacion de informacion.',
+      en: 'Context reading, source gathering, database work, and information organization.'
+    }
   },
   {
-    key: 'video',
-    type: { es: 'YouTube / DaVinci Resolve', en: 'YouTube / DaVinci Resolve' },
-    title: { es: 'Edición de video', en: 'Video editing' },
-    description: {
-      es: 'Videos editados y publicados con enfoque narrativo y ritmo visual.',
-      en: 'Edited and published videos with narrative focus and visual pacing.'
-    },
-    url: ''
+    label: { es: 'Content packaging', en: 'Content packaging' },
+    detail: {
+      es: 'Carruseles, captions, conceptos, newsletters y assets visuales con criterio editorial.',
+      en: 'Carousels, captions, concepts, newsletters, and visual assets with editorial judgment.'
+    }
   },
   {
-    key: 'research',
-    type: { es: 'Investigación', en: 'Research' },
-    title: { es: 'Paper académico', en: 'Academic paper' },
-    description: {
-      es: 'Así Suena La Protesta: un análisis del impacto en el proceso de opinión pública de La caza de Nariño – AlcolirykoZ en el marco del estallido del 2021 en Colombia a través de Twitter. Trabajo alojado en el repositorio de la Universidad de Antioquia.',
-      en: 'Así Suena La Protesta: an analysis of the impact on the public opinion process of La caza de Nariño – AlcolirykoZ in the context of Colombia’s 2021 social uprising through Twitter. Work hosted in the Universidad de Antioquia repository.'
+    label: { es: 'Operations and problem solving', en: 'Operations and problem solving' },
+    detail: {
+      es: 'Seguimiento, velocidad de ejecucion, resolucion de casos y mejora de flujos de trabajo.',
+      en: 'Follow-through, fast execution, case resolution, and workflow improvement.'
+    }
+  },
+  {
+    label: { es: 'AI-assisted workflows', en: 'AI-assisted workflows' },
+    detail: {
+      es: 'Uso herramientas agentic y de codigo para investigar, estructurar y acelerar entregables.',
+      en: 'I use agentic and coding tools to research, structure, and accelerate deliverables.'
+    }
+  }
+];
+
+const services = [
+  {
+    title: { es: 'Content research and packaging', en: 'Content research and packaging' },
+    body: {
+      es: 'Investigo eventos, noticias, temas o referencias y los convierto en piezas listas para redes o newsletters.',
+      en: 'I research events, news, topics, or references and turn them into social or newsletter-ready assets.'
+    }
+  },
+  {
+    title: { es: 'Digital content operations', en: 'Digital content operations' },
+    body: {
+      es: 'Organizo calendarios, publicaciones, sistemas de informacion y procesos de apoyo para equipos pequenos.',
+      en: 'I organize calendars, publishing workflows, information systems, and support processes for small teams.'
+    }
+  },
+  {
+    title: { es: 'Video editing and channel support', en: 'Video editing and channel support' },
+    body: {
+      es: 'Edito videos en DaVinci Resolve, preparo thumbnails y apoyo el paquete de contenido para YouTube.',
+      en: 'I edit in DaVinci Resolve, prepare thumbnails, and support the full YouTube content package.'
+    }
+  }
+];
+
+const projectHighlights = [
+  {
+    type: { es: 'Newsletter production', en: 'Newsletter production' },
+    title: { es: 'Scottsdale event and local news carousels', en: 'Scottsdale event and local news carousels' },
+    body: {
+      es: 'Investigo la informacion, la restructuro y la convierto en paquetes de carruseles para una marca editorial local.',
+      en: 'I research the information, restructure it, and turn it into carousel packages for a local editorial brand.'
+    }
+  },
+  {
+    type: { es: 'YouTube production', en: 'YouTube production' },
+    title: { es: 'Editing, thumbnails, and support for creator workflows', en: 'Editing, thumbnails, and support for creator workflows' },
+    body: {
+      es: 'Trabajo la edicion, el ritmo visual y el empaque de contenido para un canal de YouTube enfocado en tecnologia.',
+      en: 'I handle editing, visual pacing, and content packaging for a technology-focused YouTube channel.'
+    }
+  },
+  {
+    type: { es: 'Academic research', en: 'Academic research' },
+    title: { es: 'Research project published in Universidad de Antioquia repository', en: 'Research project published in Universidad de Antioquia repository' },
+    body: {
+      es: 'Mi formacion investigativa respalda mi manera de leer contexto, justificar decisiones y estructurar informacion.',
+      en: 'My research background supports how I read context, justify decisions, and structure information.'
     },
     url: 'https://bibliotecadigital.udea.edu.co/entities/publication/abe87a33-d2b6-464d-89b4-435ab92a2d61'
-  },
-  {
-    key: 'ai-data',
-    type: { es: 'IA + Bases de Datos', en: 'AI + Databases' },
-    title: { es: 'Asistentes y data workflows', en: 'Assistants and data workflows' },
-    description: {
-      es: 'Sistemas para capturar datos, automatizar tareas y centralizar información.',
-      en: 'Systems to capture data, automate tasks, and centralize information.'
-    },
-    url: ''
   }
 ];
 
@@ -80,7 +135,7 @@ const prefixedFiles = (prefix, total) => Array.from({ length: total }, (_, index
 
 const canvaCampaigns = [
   { slug: 'il-bracco', title: { es: 'Il Bracco', en: 'Il Bracco' }, files: numberedFiles(4) },
-  { slug: 'dia-de-muertos-scottsdale', title: { es: 'Día de Muertos Scottsdale', en: 'Día de Muertos Scottsdale' }, files: numberedFiles(4) },
+  { slug: 'dia-de-muertos-scottsdale', title: { es: 'Dia de Muertos Scottsdale', en: 'Dia de Muertos Scottsdale' }, files: numberedFiles(4) },
   { slug: 'dreamy-draw-music-festival', title: { es: 'Dreamy Draw Music Festival', en: 'Dreamy Draw Music Festival' }, files: numberedFiles(4) },
   { slug: 'western-week', title: { es: 'Western Week', en: 'Western Week' }, files: numberedFiles(3) },
   { slug: 'la-la-land-kind-cafe', title: { es: 'La La Land Kind Cafe', en: 'La La Land Kind Cafe' }, files: numberedFiles(4) },
@@ -88,9 +143,9 @@ const canvaCampaigns = [
   { slug: 'city-winery', title: { es: 'City Winery', en: 'City Winery' }, files: numberedFiles(4) },
   { slug: 'virgen-del-carmen', title: { es: 'Virgen del Carmen (ES/EN)', en: 'Virgen del Carmen (ES/EN)' }, files: [...prefixedFiles('es', 5), ...prefixedFiles('en', 5)] },
   { slug: 'carrusel-julio-25-28', title: { es: 'Carrusel Julio 25-28 (ES/EN)', en: 'July 25-28 Carousel (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] },
-  { slug: 'estratos-medellin-espanol', title: { es: 'Estratos Medellín (Español)', en: 'Estratos Medellin (Spanish)' }, files: numberedFiles(6) },
-  { slug: 'navidad-en-medellin-espanol', title: { es: 'Navidad en Medellín (Español)', en: 'Christmas in Medellin (Spanish)' }, files: numberedFiles(5) },
-  { slug: 'conciertos-medellin', title: { es: 'Conciertos Medellín (ES/EN)', en: 'Medellin Concerts (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] }
+  { slug: 'estratos-medellin-espanol', title: { es: 'Estratos Medellin (Espanol)', en: 'Estratos Medellin (Spanish)' }, files: numberedFiles(6) },
+  { slug: 'navidad-en-medellin-espanol', title: { es: 'Navidad en Medellin (Espanol)', en: 'Christmas in Medellin (Spanish)' }, files: numberedFiles(5) },
+  { slug: 'conciertos-medellin', title: { es: 'Conciertos Medellin (ES/EN)', en: 'Medellin Concerts (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] }
 ].map((campaign) => ({
   ...campaign,
   slides: campaign.files.map((file, index) => ({
@@ -110,77 +165,33 @@ const youtubeVideos = [
   {
     id: 'o5aoaCHlARo',
     url: 'https://youtu.be/o5aoaCHlARo',
-    title: {
-      es: "Don't learn n8n in 2026 - do THIS instead",
-      en: "Don't learn n8n in 2026 - do THIS instead"
-    }
+    title: { es: "Don't learn n8n in 2026 - do THIS instead", en: "Don't learn n8n in 2026 - do THIS instead" }
   },
   {
     id: 'utXKeNvJCws',
     url: 'https://youtu.be/utXKeNvJCws',
-    title: {
-      es: "I Canceled Claude Code. Here's Why I Came Back.",
-      en: "I Canceled Claude Code. Here's Why I Came Back."
-    }
+    title: { es: "I Canceled Claude Code. Here's Why I Came Back.", en: "I Canceled Claude Code. Here's Why I Came Back." }
   },
   {
     id: 'U686qx0IubM',
     url: 'https://youtu.be/U686qx0IubM',
-    title: {
-      es: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide",
-      en: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide"
-    }
+    title: { es: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide", en: "Why Git Makes Claude Code 10x More Powerful: Complete Beginner's Guide" }
   },
   {
     id: 'YLQvQ2MD2Y8',
     url: 'https://youtu.be/YLQvQ2MD2Y8',
-    title: {
-      es: 'How to Use Claude Code with Stata — PhD Economist Explains',
-      en: 'How to Use Claude Code with Stata — PhD Economist Explains'
-    }
-  },
-  {
-    id: 'vJ0q3fjsvJs',
-    url: 'https://youtu.be/vJ0q3fjsvJs',
-    title: {
-      es: 'How this poker expert made $150k in 12 days with Claude Code',
-      en: 'How this poker expert made $150k in 12 days with Claude Code'
-    }
-  },
-  {
-    id: '4VJmOcwWY_A',
-    url: 'https://youtu.be/4VJmOcwWY_A',
-    title: {
-      es: 'How to Make $0 with AI in 2027',
-      en: 'How to Make $0 with AI in 2027'
-    }
-  },
-  {
-    id: 'N0MEhjbo-Do',
-    url: 'https://youtu.be/N0MEhjbo-Do',
-    title: {
-      es: "Why Clawdbot Won't Help You",
-      en: "Why Clawdbot Won't Help You"
-    }
-  },
-  {
-    id: 'IQ1_5jPiQoE',
-    url: 'https://youtu.be/IQ1_5jPiQoE',
-    title: {
-      es: 'This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers',
-      en: 'This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers'
-    }
+    title: { es: 'How to Use Claude Code with Stata - PhD Economist Explains', en: 'How to Use Claude Code with Stata - PhD Economist Explains' }
   }
 ];
 
 const experienceItems = [
   {
-    role: { es: 'Chief Editor & Content Manager', en: 'Chief Editor & Content Manager' },
-    company: { es: 'Freelancer', en: 'Freelancer' },
-    period: { es: '2025 - Presente', en: '2025 - Present' },
+    role: { es: 'Freelance Digital Content Strategist and Operations Specialist', en: 'Freelance Digital Content Strategist and Operations Specialist' },
+    company: { es: 'Clientes editoriales, e-commerce y creators', en: 'Editorial, e-commerce, and creator clients' },
+    period: { es: '2024 - Presente', en: '2024 - Present' },
     description: {
-      es: 'Contenido para redes, edición de video, copywriting y diseño de piezas.',
-      en: 'Social content, video editing, copywriting, and visual asset design.'
+      es: 'Research, carruseles, captions, video editing, systems de contenido y soporte operativo para proyectos digitales.',
+      en: 'Research, carousels, captions, video editing, content systems, and operational support for digital projects.'
     }
   },
   {
@@ -188,29 +199,17 @@ const experienceItems = [
     company: { es: 'Noble Union', en: 'Noble Union' },
     period: { es: 'Enero - Julio 2025', en: 'January - July 2025' },
     description: {
-      es: 'Gestión de información interna y estrategias de cultura organizacional.',
-      en: 'Internal information management and organizational culture strategy.'
+      es: 'Gestion de informacion interna y apoyo en cultura organizacional.',
+      en: 'Internal information management and support for organizational culture.'
     }
   },
   {
     role: { es: 'Auxiliar Administrativo', en: 'Administrative Assistant' },
-    company: {
-      es: 'Coordinación Académica de Extensión Cultural, UdeA',
-      en: 'Academic Coordination for Cultural Extension, UdeA'
-    },
+    company: { es: 'Extension Cultural UdeA', en: 'UdeA Cultural Extension' },
     period: { es: 'Mayo 2023 - Enero 2024', en: 'May 2023 - January 2024' },
     description: {
-      es: 'Logística de eventos, investigación y apoyo de comunicación institucional.',
-      en: 'Event logistics, research, and institutional communication support.'
-    }
-  },
-  {
-    role: { es: 'Community Manager', en: 'Community Manager' },
-    company: { es: 'Proyecto @ruateatro', en: 'Project @ruateatro' },
-    period: { es: 'Abril 2023 - Noviembre 2023', en: 'April 2023 - November 2023' },
-    description: {
-      es: 'Gestión de redes, copywriting y cobertura audiovisual.',
-      en: 'Social media management, copywriting, and audiovisual coverage.'
+      es: 'Logistica, investigacion y apoyo a comunicaciones institucionales.',
+      en: 'Logistics, research, and institutional communications support.'
     }
   },
   {
@@ -218,24 +217,27 @@ const experienceItems = [
     company: { es: 'Xtendo Group', en: 'Xtendo Group' },
     period: { es: 'Abril 2021 - Febrero 2023', en: 'April 2021 - February 2023' },
     description: {
-      es: 'Supervisión de equipos de servicio al cliente para Chile y Perú, con uso de herramientas ofimáticas y plataformas de atención.',
-      en: 'Customer service team supervision for Chile and Peru, using office tools and support platforms.'
+      es: 'Supervision, resolucion de casos, mejora operativa y acompanamiento de agentes para Chile y Peru.',
+      en: 'Supervision, case resolution, operational improvement, and agent support for Chile and Peru.'
     }
   },
   {
-    role: { es: 'Gestora pedagógica', en: 'Pedagogical Manager' },
-    company: { es: 'Secretaría de Movilidad de Medellín', en: 'Mobility Secretariat of Medellin' },
+    role: { es: 'Gestora pedagogica', en: 'Pedagogical Facilitator' },
+    company: { es: 'Secretaria de Movilidad de Medellin', en: 'Medellin Mobility Secretariat' },
     period: { es: 'Julio - Diciembre 2019', en: 'July - December 2019' },
     description: {
-      es: 'Intervenciones pedagógicas de seguridad vial en calles, empresas e instituciones públicas.',
-      en: 'Road safety pedagogical interventions in streets, companies, and public institutions.'
+      es: 'Comunicacion publica, pedagogia y trabajo en territorio.',
+      en: 'Public communication, pedagogy, and field work.'
     }
   }
 ];
 ---
 
-<BaseLayout title="Catalina Brand Gómez - Portafolio" description="Sitio personal y portafolio de Catalina Brand Gómez">
-  <section class="masthead">
+<BaseLayout
+  title="Catalina Brand Gomez - Digital Content Strategist and Operations Specialist"
+  description="Research-driven digital content strategist and operations specialist. Portfolio, content systems, editing, and AI-assisted workflows."
+>
+  <section class="masthead hero-shell">
     <div class="identity">
       <div class="control-row">
         <div class="lang-switch" role="group" aria-label="Selector de idioma">
@@ -248,23 +250,32 @@ const experienceItems = [
         </button>
       </div>
 
-      <h1>Catalina Brand Gómez</h1>
+      <p class="eyebrow">
+        <span class="i18n es">Portfolio / posicionamiento profesional</span>
+        <span class="i18n en">Portfolio / professional positioning</span>
+      </p>
+      <h1>Catalina Brand Gomez</h1>
       <p class="headline">
-        <span class="i18n es">Comunicadora</span>
-        <span class="i18n en">Communicator</span>
+        <span class="i18n es">Digital Content Strategist and Operations Specialist</span>
+        <span class="i18n en">Digital Content Strategist and Operations Specialist</span>
+      </p>
+      <p class="hero-summary">
+        <span class="i18n es">
+          Profesional en comunicacion con enfoque en investigacion, contenido digital, operaciones creativas y workflows asistidos con IA.
+        </span>
+        <span class="i18n en">
+          Communication professional focused on research, digital content, creative operations, and AI-assisted workflows.
+        </span>
       </p>
       <p class="location">
-        <span class="i18n es">Medellín, Colombia</span>
-        <span class="i18n en">Medellin, Colombia</span>
+        <span class="i18n es">Medellin, Colombia · Universidad de Antioquia</span>
+        <span class="i18n en">Medellin, Colombia · Universidad de Antioquia</span>
       </p>
-      <p class="location">Universidad de Antioquia</p>
 
       <div class="social-row">
         <a class="email-link" href="mailto:catabg1410@gmail.com" aria-label="Enviar email">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.25 6.9 5.14 6.9-5.14H5.1Zm13.4 12a1.25 1.25 0 0 0 1.25-1.25V8.38l-7.3 5.44a.75.75 0 0 1-.9 0l-7.3-5.44v8.87c0 .7.56 1.25 1.25 1.25h12.5Z"
-            />
+            <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.25 6.9 5.14 6.9-5.14H5.1Zm13.4 12a1.25 1.25 0 0 0 1.25-1.25V8.38l-7.3 5.44a.75.75 0 0 1-.9 0l-7.3-5.44v8.87c0 .7.56 1.25 1.25 1.25h12.5Z" />
           </svg>
           <span>catabg1410@gmail.com</span>
         </a>
@@ -277,9 +288,9 @@ const experienceItems = [
                   <path d="M4.98 3.5C3.88 3.5 3 4.39 3 5.48S3.88 7.46 4.98 7.46c1.09 0 1.98-.88 1.98-1.98S6.07 3.5 4.98 3.5ZM3.27 8.94h3.42V20H3.27V8.94Zm5.55 0h3.28v1.57h.05c.46-.86 1.57-1.77 3.24-1.77 3.47 0 4.11 2.28 4.11 5.24V20h-3.42v-5.33c0-1.27-.02-2.91-1.77-2.91-1.77 0-2.04 1.38-2.04 2.81V20H8.82V8.94Z" />
                 </svg>
               )}
-              {item.id === 'x' && (
+              {item.id === 'upwork' && (
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.9 2h3.7l-8.1 9.26L24 22h-7.23l-5.66-7.4L4.64 22H1l8.66-9.9L0 2h7.42l5.11 6.75L18.9 2Zm-1.28 17.81h2.05L6.3 4.08H4.1L17.62 19.8Z" />
+                  <path d="M17.5 7.1c-1.7 0-3 .8-4 2.3l-.6-.9c-.9-1.4-1.7-2.8-2.2-4.2H7.9v7.4c0 2-.8 3.1-2.3 3.1S3.3 13.7 3.3 11.8V7.3H.5v4.4c0 3.5 2 5.6 5 5.6s5-2 5-5.5v-.7l.4.6c1 1.7 2.4 3.6 5 3.6 3.2 0 5.6-2.4 5.6-5.8 0-3-2-5.4-5-5.4Zm0 8c-1.6 0-2.6-1.1-3.8-3.1l-.2-.3.1-.2c.7-1.4 1.8-2.2 3.2-2.2 1.6 0 2.7 1.2 2.7 2.9 0 1.7-1 2.9-2.6 2.9Z" />
                 </svg>
               )}
               {item.id === 'github' && (
@@ -293,6 +304,10 @@ const experienceItems = [
       </div>
 
       <div class="actions">
+        <a class="cta primary" href="#services">
+          <span class="i18n es">Ver servicios</span>
+          <span class="i18n en">View services</span>
+        </a>
         <a class="cta" href={cvUrl}>
           <span class="i18n es">Descargar CV</span>
           <span class="i18n en">Download CV</span>
@@ -300,33 +315,104 @@ const experienceItems = [
       </div>
     </div>
 
-    <div class="photo-wrap">
-      <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gómez" class="profile-photo" />
+    <div class="hero-aside">
+      <div class="photo-wrap">
+        <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gomez" class="profile-photo" />
+      </div>
+      <div class="stat-grid">
+        {heroStats.map((item) => (
+          <article class="stat-card">
+            <strong>{item.value}</strong>
+            <p>
+              <span class="i18n es">{item.es}</span>
+              <span class="i18n en">{item.en}</span>
+            </p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section id="ahora" class="stream-section">
-    <h2>
-      <span class="i18n es">Ahora</span>
-      <span class="i18n en">Now</span>
-    </h2>
-    <ul class="flow-list">
-      {focusAreas.map((area) => (
-        <li>
-          <span class="i18n es">{area.es}</span>
-          <span class="i18n en">{area.en}</span>
-        </li>
+  <section class="stream-section intro-grid">
+    <div>
+      <h2>
+        <span class="i18n es">Lo que hago</span>
+        <span class="i18n en">What I do</span>
+      </h2>
+      <p>
+        <span class="i18n es">
+          Ayudo a newsletters, small brands y creators a convertir informacion dispersa en contenido estructurado, workflows mas claros y entregables listos para publicar.
+        </span>
+        <span class="i18n en">
+          I help newsletters, small brands, and creators turn scattered information into structured content, clearer workflows, and ready-to-publish deliverables.
+        </span>
+      </p>
+    </div>
+    <div class="pillars-grid">
+      {valuePillars.map((pillar) => (
+        <article class="pillar-card">
+          <h3>
+            <span class="i18n es">{pillar.title.es}</span>
+            <span class="i18n en">{pillar.title.en}</span>
+          </h3>
+          <p>
+            <span class="i18n es">{pillar.body.es}</span>
+            <span class="i18n en">{pillar.body.en}</span>
+          </p>
+        </article>
       ))}
-    </ul>
+    </div>
   </section>
 
-  <section id="proyectos" class="stream-section">
+  <section id="strengths" class="stream-section">
     <h2>
-      <span class="i18n es">Bitácora de proyectos</span>
-      <span class="i18n en">Project log</span>
+      <span class="i18n es">Fortalezas clave</span>
+      <span class="i18n en">Core strengths</span>
+    </h2>
+    <div class="strength-list">
+      {strengths.map((strength) => (
+        <article class="strength-item">
+          <h3>
+            <span class="i18n es">{strength.label.es}</span>
+            <span class="i18n en">{strength.label.en}</span>
+          </h3>
+          <p>
+            <span class="i18n es">{strength.detail.es}</span>
+            <span class="i18n en">{strength.detail.en}</span>
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="services" class="stream-section">
+    <h2>
+      <span class="i18n es">Servicios</span>
+      <span class="i18n en">Services</span>
+    </h2>
+    <div class="service-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <h3>
+            <span class="i18n es">{service.title.es}</span>
+            <span class="i18n en">{service.title.en}</span>
+          </h3>
+          <p>
+            <span class="i18n es">{service.body.es}</span>
+            <span class="i18n en">{service.body.en}</span>
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="proof" class="stream-section">
+    <h2>
+      <span class="i18n es">Selected work</span>
+      <span class="i18n en">Selected work</span>
     </h2>
     <div class="stream-list">
-      {projectLog.map((project) => (
+      {projectHighlights.map((project) => (
         <article>
           <p class="item-meta">
             <span class="i18n es">{project.type.es}</span>
@@ -337,153 +423,137 @@ const experienceItems = [
             <span class="i18n en">{project.title.en}</span>
           </h3>
           <p>
-            <span class="i18n es">{project.description.es}</span>
-            <span class="i18n en">{project.description.en}</span>
+            <span class="i18n es">{project.body.es}</span>
+            <span class="i18n en">{project.body.en}</span>
           </p>
-          {
-            project.key !== 'video' &&
-              project.key !== 'content' &&
-              project.key !== 'ai-data' &&
-              (project.url ? (
-                <a class="mini-link" href={project.url} target="_blank" rel="noreferrer">
-                  <span class="i18n es">Ver proyecto</span>
-                  <span class="i18n en">View project</span>
-                </a>
-              ) : (
-                <span class="mini-link muted">
-                  <span class="i18n es">Enlace por agregar</span>
-                  <span class="i18n en">Link to be added</span>
-                </span>
-              ))
-          }
-          {
-            project.key === 'video' && (
-              <>
-                <p class="video-note">
-                  <span class="i18n es">
-                    Realización de tomas, edición en DaVinci Resolve y diseño de thumbnails para cada video.
-                  </span>
-                  <span class="i18n en">
-                    Shot production, DaVinci Resolve editing, and thumbnail design for each video.
-                  </span>
-                </p>
-                <div class="video-grid">
-                  {youtubeVideos.map((video) => (
-                    <a class="video-card" href={video.url} target="_blank" rel="noreferrer">
-                      <img
-                        src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                        alt={video.title.es}
-                        loading="lazy"
-                        width="480"
-                        height="360"
-                      />
-                      <h3>
-                        <span class="i18n es">{video.title.es}</span>
-                        <span class="i18n en">{video.title.en}</span>
-                      </h3>
-                    </a>
-                  ))}
-                </div>
-              </>
-            )
-          }
-          {
-            project.key === 'content' && (
-              <>
-                <div class="content-subsection">
-                  <p class="content-subtitle">
-                    <span class="i18n es">NEWSLETTERS</span>
-                    <span class="i18n en">NEWSLETTERS</span>
-                  </p>
-                  <p class="video-note">
-                    <span class="i18n es">Portafolio visual por campaña (piezas exportadas desde Canva).</span>
-                    <span class="i18n en">Visual campaign portfolio (final assets exported from Canva).</span>
-                  </p>
-                  <div class="canva-grid">
-                    {canvaCampaigns.map((campaign) => (
-                      <article class="canva-campaign" data-carousel tabindex="0">
-                        <div class="canva-frame">
-                          {campaign.slides.map((slide, slideIndex) => (
-                            <img
-                              src={slide.src}
-                              alt={`Campaña ${campaign.title.es} - pieza ${slide.index}`}
-                              class:list={['canva-slide', slideIndex === 0 && 'is-active']}
-                              loading="lazy"
-                              width="1080"
-                              height="1080"
-                              data-carousel-slide
-                              aria-hidden={slideIndex === 0 ? 'false' : 'true'}
-                            />
-                          ))}
-                          <button type="button" class="canva-arrow prev" data-carousel-prev aria-label={`Pieza anterior de ${campaign.title.es}`}>
-                            ‹
-                          </button>
-                          <button type="button" class="canva-arrow next" data-carousel-next aria-label={`Siguiente pieza de ${campaign.title.es}`}>
-                            ›
-                          </button>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-
-                <div class="content-subsection">
-                  <p class="content-subtitle">BOX CLUB</p>
-                  <p class="video-note">
-                    <span class="i18n es">
-                      Responsable de diseño de piezas, redacción de copy, edición de videos y programación del
-                      contenido de la tienda.
-                    </span>
-                    <span class="i18n en">
-                      Responsible for design assets, copywriting, video editing, and content scheduling for the
-                      store.
-                    </span>
-                  </p>
-                  <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
-                    <span class="i18n es">Ver perfil en Instagram</span>
-                    <span class="i18n en">View Instagram profile</span>
-                  </a>
-                  <div class="instagram-grid">
-                    {instagramPosts.map((post) => (
-                      <a
-                        class="instagram-card"
-                        href={post.postUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <img
-                          src={`${import.meta.env.BASE_URL}${post.image}`}
-                          alt={`Post de Instagram @box_club_col (${post.shortcode})`}
-                          loading="lazy"
-                          width="320"
-                          height="320"
-                        />
-                        <p class="instagram-copy">{post.caption || 'Copywriting de la pieza en Instagram.'}</p>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </>
-            )
-          }
-          {
-            project.key === 'ai-data' && (
-              <div class="tool-logo-row" aria-label="Herramientas de IA y bases de datos">
-                {aiTools.map((tool) => (
-                  <span class="tool-logo" title={tool.label} aria-label={tool.label}>
-                    <img src={tool.icon} alt={tool.name} loading="lazy" width="24" height="24" />
-                    <span class="tool-label">{tool.label}</span>
-                  </span>
-                ))}
-              </div>
-            )
-          }
+          {project.url && (
+            <a class="mini-link" href={project.url} target="_blank" rel="noreferrer">
+              <span class="i18n es">Ver proyecto</span>
+              <span class="i18n en">View project</span>
+            </a>
+          )}
         </article>
       ))}
     </div>
   </section>
 
-  <section id="experiencia" class="stream-section">
+  <section id="portfolio" class="stream-section">
+    <h2>
+      <span class="i18n es">Content portfolio</span>
+      <span class="i18n en">Content portfolio</span>
+    </h2>
+    <p>
+      <span class="i18n es">Ejemplos de carruseles investigados, estructurados y producidos para newsletters y marcas.</span>
+      <span class="i18n en">Examples of carousels researched, structured, and produced for newsletters and brands.</span>
+    </p>
+    <div class="canva-grid">
+      {canvaCampaigns.map((campaign) => (
+        <article class="canva-campaign" data-carousel tabindex="0">
+          <div class="canva-head">
+            <h3>
+              <span class="i18n es">{campaign.title.es}</span>
+              <span class="i18n en">{campaign.title.en}</span>
+            </h3>
+            <p class="canva-counter">
+              <span data-carousel-current>1</span> / {campaign.slides.length}
+            </p>
+          </div>
+          <div class="canva-frame">
+            {campaign.slides.map((slide, slideIndex) => (
+              <img
+                src={slide.src}
+                alt={`Campaign ${campaign.title.en} slide ${slide.index}`}
+                class:list={['canva-slide', slideIndex === 0 && 'is-active']}
+                loading="lazy"
+                width="1080"
+                height="1080"
+                data-carousel-slide
+                aria-hidden={slideIndex === 0 ? 'false' : 'true'}
+              />
+            ))}
+            <button type="button" class="canva-arrow prev" data-carousel-prev aria-label={`Previous slide for ${campaign.title.en}`}>
+              ‹
+            </button>
+            <button type="button" class="canva-arrow next" data-carousel-next aria-label={`Next slide for ${campaign.title.en}`}>
+              ›
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="youtube" class="stream-section">
+    <h2>YouTube</h2>
+    <p>
+      <span class="i18n es">Edicion en DaVinci Resolve, thumbnails y soporte de empaque para canales de tecnologia.</span>
+      <span class="i18n en">DaVinci Resolve editing, thumbnails, and packaging support for technology channels.</span>
+    </p>
+    <div class="video-grid">
+      {youtubeVideos.map((video) => (
+        <a class="video-card" href={video.url} target="_blank" rel="noreferrer">
+          <img
+            src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+            alt={video.title.en}
+            loading="lazy"
+            width="480"
+            height="360"
+          />
+          <h3>
+            <span class="i18n es">{video.title.es}</span>
+            <span class="i18n en">{video.title.en}</span>
+          </h3>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="social-content" class="stream-section">
+    <h2>Instagram</h2>
+    <p>
+      <span class="i18n es">Trabajo de contenido, copy y apoyo creativo para Box Club.</span>
+      <span class="i18n en">Content, copy, and creative support work for Box Club.</span>
+    </p>
+    <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
+      <span class="i18n es">Ver perfil en Instagram</span>
+      <span class="i18n en">View Instagram profile</span>
+    </a>
+    <div class="instagram-grid">
+      {instagramPosts.map((post) => (
+        <a class="instagram-card" href={post.postUrl} target="_blank" rel="noreferrer">
+          <img
+            src={`${import.meta.env.BASE_URL}${post.image}`}
+            alt={`Instagram post ${post.shortcode}`}
+            loading="lazy"
+            width="320"
+            height="320"
+          />
+          <p class="instagram-copy">{post.caption || 'Instagram content support and copywriting.'}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="toolkit" class="stream-section">
+    <h2>
+      <span class="i18n es">Toolkit</span>
+      <span class="i18n en">Toolkit</span>
+    </h2>
+    <p>
+      <span class="i18n es">Herramientas que uso para investigar, organizar y producir mas rapido.</span>
+      <span class="i18n en">Tools I use to research, organize, and produce faster.</span>
+    </p>
+    <div class="tool-logo-row" aria-label="Herramientas">
+      {aiTools.map((tool) => (
+        <span class="tool-logo" title={tool.label} aria-label={tool.label}>
+          <img src={tool.icon} alt={tool.name} loading="lazy" width="24" height="24" />
+          <span class="tool-label">{tool.label}</span>
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <section id="experience" class="stream-section">
     <h2>
       <span class="i18n es">Experiencia</span>
       <span class="i18n en">Experience</span>
@@ -514,35 +584,23 @@ const experienceItems = [
     </div>
   </section>
 
-  <section id="cv" class="stream-section">
-    <h2>CV</h2>
-    <p>
-      <span class="i18n es">El CV completo sigue disponible en PDF para la versión detallada de tu trayectoria.</span>
-      <span class="i18n en">The full CV is available in PDF for the detailed version of your background.</span>
-    </p>
-    <a class="cta primary" href={cvUrl}>
-      <span class="i18n es">Descargar CV</span>
-      <span class="i18n en">Download CV</span>
-    </a>
-  </section>
-
-  <section id="contacto" class="stream-section">
+  <section id="contact" class="stream-section contact-band">
     <h2>
-      <span class="i18n es">Contacto</span>
-      <span class="i18n en">Contact</span>
+      <span class="i18n es">Trabajemos juntas</span>
+      <span class="i18n en">Let's work together</span>
     </h2>
     <p>
-      <span class="i18n es">Disponible para colaboraciones en comunicación, IA aplicada y organización de datos.</span>
-      <span class="i18n en">Available for collaborations in communication, applied AI, and data organization.</span>
+      <span class="i18n es">
+        Disponible para proyectos de content research, digital operations, social packaging y soporte de produccion para creators y small brands.
+      </span>
+      <span class="i18n en">
+        Available for content research, digital operations, social packaging, and production support projects for creators and small brands.
+      </span>
     </p>
-    <a class="email-link" href="mailto:catabg1410@gmail.com">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.1-.25 6.9 5.14 6.9-5.14H5.1Zm13.4 12a1.25 1.25 0 0 0 1.25-1.25V8.38l-7.3 5.44a.75.75 0 0 1-.9 0l-7.3-5.44v8.87c0 .7.56 1.25 1.25 1.25h12.5Z"
-        />
-      </svg>
-      <span>catabg1410@gmail.com</span>
-    </a>
+    <div class="actions">
+      <a class="cta primary" href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
+      <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
   </section>
 
   <script is:inline>
