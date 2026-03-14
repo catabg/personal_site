@@ -16,12 +16,6 @@ const socialLinks = [
   { id: 'github', label: 'GitHub', url: githubUrl }
 ];
 
-const heroStats = [
-  { value: '5h', es: 'para entregar un paquete de 5 carruseles', en: 'to deliver a 5-carousel package' },
-  { value: '3', es: 'capas de valor: research, content y operations', en: 'value layers: research, content, and operations' },
-  { value: '1', es: 'narrativa coherente para LinkedIn, Upwork y portfolio', en: 'cohesive narrative across LinkedIn, Upwork, and portfolio' }
-];
-
 const valuePillars = [
   {
     title: { es: 'Research-first', en: 'Research-first' },
@@ -271,6 +265,10 @@ const experienceItems = [
         <span class="i18n es">Medellin, Colombia · Universidad de Antioquia</span>
         <span class="i18n en">Medellin, Colombia · Universidad de Antioquia</span>
       </p>
+      <p class="hero-note">
+        <span class="i18n es">Research-driven content, digital operations y produccion creativa para newsletters, marcas y creators.</span>
+        <span class="i18n en">Research-driven content, digital operations, and creative production for newsletters, brands, and creators.</span>
+      </p>
 
       <div class="social-row">
         <a class="email-link" href="mailto:catabg1410@gmail.com" aria-label="Enviar email">
@@ -318,17 +316,6 @@ const experienceItems = [
     <div class="hero-aside">
       <div class="photo-wrap">
         <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gomez" class="profile-photo" />
-      </div>
-      <div class="stat-grid">
-        {heroStats.map((item) => (
-          <article class="stat-card">
-            <strong>{item.value}</strong>
-            <p>
-              <span class="i18n es">{item.es}</span>
-              <span class="i18n en">{item.en}</span>
-            </p>
-          </article>
-        ))}
       </div>
     </div>
   </section>
